@@ -63,10 +63,14 @@
       <a href="https://wa.me/628175420150?text=Halo%20Admin,%20saya%20masih%20kesulitan%20masuk%20pada%20Username%20dan%20NISN,%20Nama%20saya:%20[isikan%20nama]%20kelas:" 
    class="whatsapp-button" 
    target="_blank">
+       
+           <div class="whatsapp-icon">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+    </div>
+             <!-- WHATSAPP 
     <img src="https://flaticon.com" alt="WhatsApp" class="whatsapp-icon">
-</a>
-<style>
-.whatsapp-button {
+       style
+       .whatsapp-button {
     position: fixed;
     bottom: 10px;
     right: 10px;
@@ -83,6 +87,57 @@
 }
 .whatsapp-icon:hover {
     transform: scale(1.1);
+}
+             WHATSAPP -->
+</a>
+<style>
+.whatsapp-button {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    z-index: 1000;
+}
+
+.whatsapp-icon {
+    width: 65px;
+    height: 65px;
+    background-color: #25d366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* animasi utama */
+    animation: pulse-wa 1.8s infinite;
+    
+    box-shadow: 0 0 0 rgba(37, 211, 102, 0.7);
+    transition: all 0.3s ease;
+}
+
+.whatsapp-icon img {
+    width: 30px;
+    height: 30px;
+}
+
+/* efek hover */
+.whatsapp-icon:hover {
+    transform: scale(1.15);
+}
+
+/* KEYFRAME ANIMASI */
+@keyframes pulse-wa {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px 10px rgba(37, 211, 102, 0.3);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
 }
 </style>
         <!-- akhir WHATSAPP -->
