@@ -1,0 +1,636 @@
+<!doctype html>
+<html lang="id" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pengumuman Kelulusan SMK Negeri 1 Sanden 2025/2026</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .font-playfair { font-family: 'Playfair Display', serif; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes pulse-glow { 0%, 100% { box-shadow: 0 0 20px rgba(34,197,94,0.3); } 50% { box-shadow: 0 0 40px rgba(34,197,94,0.6); } }
+        @keyframes confetti { 0% { transform: translateY(-100%) rotate(0deg); opacity: 1; } 100% { transform: translateY(100%) rotate(720deg); opacity: 0; } }
+        .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+        .animate-pulse-glow { animation: pulse-glow 2s infinite; }
+        .confetti-piece { position: fixed; width: 10px; height: 10px; top: -10px; animation: confetti 3s ease-in-out forwards; pointer-events: none; z-index: 9999; }
+        .login-card { backdrop-filter: blur(20px); background: rgba(255,255,255,0.95); }
+        .gradient-bg { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%); }
+        .gold-accent { color: #d4a843; }
+        .gold-border { border-color: #d4a843; }
+    </style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full overflow-auto"><!-- LOGIN PAGE -->
+  <div id="loginPage" class="h-full gradient-bg flex items-center justify-center p-4">
+   <div class="w-full max-w-md">
+    <div class="login-card rounded-2xl shadow-2xl p-8 border border-gray-200">
+          <div class="text-center mb-6">
+      
+      <div id="logoContainer" class="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-900 to-blue-700 flex items-center justify-center overflow-hidden"><img id="schoolLogo" src="" class="w-full h-full object-cover hidden" alt="Logo Sekolah"> 
+
+              
+<img src="Logo 3d.jpg" width="100%" alt="Logo Sekolah">
+             <!-- GAMBAR <span id="logoFallback" class="text-white text-3xl font-bold font-playfair">S</span> -->
+      </div>
+      <h1 id="schoolTitle" class="font-playfair text-xl font-bold text-gray-800">SMK Negeri 1 Sanden</h1>
+      <p class="text-sm text-gray-500 mt-1">Tahun Pelajaran 2025/2026</p>
+      <div class="mt-3 inline-block px-4 py-1 bg-blue-900 rounded-full"><span id="annTitle" class="text-xs font-semibold text-white tracking-wider uppercase">Pengumuman Kelulusan</span>
+      </div>
+     </div>
+     <div class="space-y-4">
+      <div><label for="inputNama" class="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap</label> <input id="inputNama" type="text" placeholder="Masukkan nama lengkap" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition">
+      </div>
+      <div><label for="inputNISN" class="block text-sm font-medium text-gray-700 mb-1">NISN</label> <input id="inputNISN" type="text" placeholder="Masukkan NISN" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition">
+      </div><button onclick="checkResult()" class="w-full py-3 bg-gradient-to-r from-blue-900 to-blue-700 text-white font-semibold rounded-lg hover:from-blue-800 hover:to-blue-600 transition-all shadow-lg hover:shadow-xl"> <span class="flex items-center justify-center gap-2"><i data-lucide="search" class="w-4 h-4"></i> Cek Kelulusan</span> </button>
+      <div id="loginError" class="hidden text-center text-red-500 text-sm bg-red-50 p-3 rounded-lg"></div>
+     </div>
+     <div class="mt-6 pt-4 border-t border-gray-200">
+      <p class="text-xs text-gray-500 text-center leading-relaxed"><i data-lucide="info" class="w-3 h-3 inline-block mr-1"></i> Jika ada perbedaan hasil pengumuman online dengan manual, maka yang menjadi acuan adalah <strong>dokumen kelulusan yang telah disahkan dan ditandatangani oleh Kepala Sekolah</strong>.</p>
+     </div>
+     <div class="mt-4 text-center"><button onclick="showAdminLogin()" class="text-xs text-gray-400 hover:text-gray-600 transition"> <i data-lucide="shield" class="w-3 h-3 inline-block mr-1"></i>Admin </button>
+     </div>
+    </div>
+   </div>
+  </div><!-- RESULT PAGE -->
+  <div id="resultPage" class="h-full gradient-bg flex items-center justify-center p-4 hidden">
+   <div class="w-full max-w-lg">
+    <div class="login-card rounded-2xl shadow-2xl p-8 text-center animate-fade-in-up">
+     <div id="resultLogoContainer" class="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-900 to-blue-700 flex items-center justify-center overflow-hidden"><img id="resultLogo" src="" class="w-full h-full object-cover hidden" alt="Logo"> <span id="resultLogoFallback" class="text-white text-2xl font-bold font-playfair">S</span>
+     </div>
+     <h2 class="font-playfair text-lg font-bold text-gray-800 mb-1" id="resultSchoolName">SMK Negeri 1 Sanden</h2>
+     <p class="text-xs text-gray-500 mb-6">Pengumuman Kelulusan TP 2025/2026</p>
+     <div id="resultContent"></div><button onclick="backToLogin()" class="mt-6 px-6 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition text-sm font-medium"> <i data-lucide="arrow-left" class="w-4 h-4 inline-block mr-1"></i> Kembali </button>
+     <div class="mt-4 pt-4 border-t border-gray-200">
+      <p class="text-xs text-gray-500 leading-relaxed">Jika ada perbedaan hasil pengumuman online dengan manual, maka yang menjadi acuan adalah <strong>dokumen kelulusan yang telah disahkan dan ditandatangani oleh Kepala Sekolah</strong>.</p>
+     </div>
+    </div>
+   </div>
+  </div><!-- ADMIN LOGIN MODAL -->
+  <div id="adminLoginModal" class="fixed inset-0 bg-black/60 flex items-center justify-center p-4 hidden z-50">
+   <div class="bg-white rounded-2xl p-6 w-full max-w-sm shadow-2xl">
+    <h3 class="font-playfair text-lg font-bold text-gray-800 mb-4 text-center">Panel Admin</h3>
+    <div class="space-y-3"><input id="adminUser" type="text" placeholder="Username" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none"> <input id="adminPass" type="password" placeholder="Password" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none">
+     <div id="adminLoginError" class="hidden text-red-500 text-sm text-center"></div><button onclick="loginAdmin()" class="w-full py-3 bg-blue-900 text-white rounded-lg font-semibold hover:bg-blue-800 transition">Masuk</button> <button onclick="closeAdminLogin()" class="w-full py-2 text-gray-500 hover:text-gray-700 text-sm">Batal</button>
+    </div>
+   </div>
+  </div><!-- ADMIN PANEL -->
+  <div id="adminPanel" class="h-full bg-gray-50 hidden overflow-auto">
+   <div class="max-w-4xl mx-auto p-6">
+    <div class="flex items-center justify-between mb-6">
+     <h2 class="font-playfair text-2xl font-bold text-gray-800">Panel Admin</h2><button onclick="logoutAdmin()" class="px-4 py-2 bg-red-500 text-white rounded-lg text-sm hover:bg-red-600 transition"> <i data-lucide="log-out" class="w-4 h-4 inline-block mr-1"></i>Kembali </button>
+    </div><!-- Upload Logo -->
+    <div class="bg-white rounded-xl p-6 shadow-sm border mb-6">
+     <h3 class="font-semibold text-gray-800 mb-3"><i data-lucide="image" class="w-5 h-5 inline-block mr-2"></i>Ganti Logo Sekolah</h3>
+     <div class="flex items-center gap-4">
+      <div id="adminLogoPreview" class="w-16 h-16 rounded-full bg-blue-900 flex items-center justify-center overflow-hidden"><img id="adminLogoImg" src="" class="w-full h-full object-cover hidden" alt="Logo"> <span id="adminLogoFallback" class="text-white text-xl font-bold">MOKO</span>
+      </div>
+      <div><input type="file" id="logoUpload" accept="image/*" onchange="handleLogoUpload(event)" class="text-sm">
+       <p class="text-xs text-gray-500 mt-1">Format: JPG, PNG. Maks 2MB</p>
+      </div>
+     </div>
+    </div><!-- Upload Excel -->
+    <div class="bg-white rounded-xl p-6 shadow-sm border mb-6">
+     <h3 class="font-semibold text-gray-800 mb-3"><i data-lucide="file-text" class="w-5 h-5 inline-block mr-2"></i>Upload Data Siswa (CSV/Excel)</h3>
+     <p class="text-xs text-gray-500 mb-3">Format kolom: NO, NISN, NAMA, KELAS, STATUS (pisahkan dengan tab atau koma). </p><textarea id="dataInput" rows="6" class="w-full px-4 py-3 rounded-lg border border-gray-300 text-sm font-mono focus:ring-2 focus:ring-blue-500 outline-none" placeholder="Tempel data dari Excel di sini..."></textarea> <button onclick="parseData()" class="mt-3 px-6 py-2 bg-green-600 text-white rounded-lg text-sm font-semibold hover:bg-green-700 transition"> <i data-lucide="upload" class="w-4 h-4 inline-block mr-1"></i>Proses Data </button>
+     <div id="parseResult" class="mt-3 text-sm hidden"></div>
+    </div><!-- Current Data -->
+    <div class="bg-white rounded-xl p-6 shadow-sm border">
+     <h3 class="font-semibold text-gray-800 mb-3"><i data-lucide="users" class="w-5 h-5 inline-block mr-2"></i>Data Saat Ini (<span id="dataCount">0</span> siswa)</h3>
+     <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+       <thead>
+        <tr class="bg-gray-100 text-left">
+         <th class="px-3 py-2 rounded-tl-lg">No</th>
+         <th class="px-3 py-2">NISN</th>
+         <th class="px-3 py-2">Nama</th>
+         <th class="px-3 py-2">Kelas</th>
+         <th class="px-3 py-2 rounded-tr-lg">Status</th>
+        </tr>
+       </thead>
+       <tbody id="dataTable"></tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+  </div>
+  <script>
+        // Student data
+        let studentData = [
+            {no:1,nisn:"0076213334",nama:"ADRIAN RIFAI",kelas:"XII NKPI-1",status:"LULUS"},
+            {no:2,nisn:"0081764475",nama:"AFNAN MAULANA ZULFADLI",kelas:"XII NKPI-1",status:"LULUS"},
+            {no:3,nisn:"0079274051",nama:"AGUS DANI PRATAMA",kelas:"XII NKPI-1",status:"LULUS"},
+            {no:4,nisn:"0078720312",nama:"AKBAR DWI CAHYO",kelas:"XII NKPI-1",status:"LULUS"},
+            {no:5,nisn:"0078421924",nama:"ALVIN RAYYAN SOFYANSYAH",kelas:"XII NKPI-1",status:"LULUS"},
+            {no:6,nisn:"0062136291",nama:"ANDIKA AJI PRAYOGA",kelas:"XII NKPI-1",status:"LULUS"},
+            {no:7,nisn:"0071662179",nama:"ANTONIUS DIKA FEBRIYANTO",kelas:"XII NKPI-1",status:"LULUS"},
+            {no:8,nisn:"0079292773",nama:"ARI PURWANTO",kelas:"XII NKPI-1",status:"LULUS"},
+            {no:9,nisn:"0086993920",nama:"DIAZ MULIAWAN",kelas:"XII NKPI-1",status:"LULUS"},
+            {no:10,nisn:"0085340669",nama:"DZAKI ARYA KARTIKA",kelas:"XII NKPI-1",status:"LULUS"},
+            {no:11,nisn:"0075715016",nama:"HABIB NURROHMAN",kelas:"XII NKPI-1",status:"LULUS"},
+            {no:12,nisn:"0075860502",nama:"HERMAWAN SUBEKTI",kelas:"XII NKPI-1",status:"LULUS"},
+            {no:13,nisn:"0081903888",nama:"IBRA ADITAMA SAPUTRO",kelas:"XII NKPI-1",status:"LULUS"},
+            {no:14,nisn:"0084861949",nama:"JAKA WAHYU HIDAYAH",kelas:"XII NKPI-1",status:"LULUS"},
+            {no:15,nisn:"0071977748",nama:"LARESYA REVAN MAULANA",kelas:"XII NKPI-1",status:"LULUS"},
+            {no:16,nisn:"0071517841",nama:"MUHAMMAD FAUZI ARDI WIBOWO",kelas:"XII NKPI-1",status:"LULUS"},
+            {no:17,nisn:"0078002558",nama:"NINO FARREL MAHENDRA",kelas:"XII NKPI-1",status:"LULUS"},
+            {no:18,nisn:"0074891550",nama:"RAJA DANI SAPUTRA",kelas:"XII NKPI-1",status:"LULUS"},
+            {no:19,nisn:"0072486365",nama:"RENO EKA PUTRA",kelas:"XII NKPI-1",status:"LULUS"},
+            {no:20,nisn:"0079215807",nama:"SHOLIHIN FAJAR SHIDIQ",kelas:"XII NKPI-1",status:"LULUS"},
+            {no:21,nisn:"0082123590",nama:"SURYO PRASETYO",kelas:"XII NKPI-1",status:"LULUS"},
+            {no:22,nisn:"0067848888",nama:"TEDI PURBO",kelas:"XII NKPI-1",status:"LULUS"},
+            {no:23,nisn:"0071071993",nama:"TRI ANTORA ALISKI",kelas:"XII NKPI-1",status:"LULUS"},
+            {no:24,nisn:"0074170421",nama:"VARIAN GADING PRATAMA",kelas:"XII NKPI-1",status:"LULUS"},
+            {no:25,nisn:"0085443792",nama:"ZANU FERDIANSYAH",kelas:"XII NKPI-1",status:"LULUS"},
+            {no:26,nisn:"0082640457",nama:"AGUS RAMADHANI",kelas:"XII NKPI-2",status:"LULUS"},
+            {no:27,nisn:"0073839001",nama:"ALBY FIRMANSYAH PUTRO",kelas:"XII NKPI-2",status:"LULUS"},
+            {no:28,nisn:"0077334445",nama:"ALIF KHOIRUDDIN FAUZI",kelas:"XII NKPI-2",status:"LULUS"},
+            {no:29,nisn:"0082907254",nama:"ALVYAN YOGA PRATAMA",kelas:"XII NKPI-2",status:"LULUS"},
+            {no:30,nisn:"0079567008",nama:"ANWAR FAUZI",kelas:"XII NKPI-2",status:"LULUS"},
+            {no:31,nisn:"0084400341",nama:"AVIV LANANG WICAKSONO",kelas:"XII NKPI-2",status:"LULUS"},
+            {no:32,nisn:"0076722214",nama:"BAGUS DHANU PRASETYO RAHMAN",kelas:"XII NKPI-2",status:"LULUS"},
+            {no:33,nisn:"0068627520",nama:"CIELO AVRIZA AL USTADZ",kelas:"XII NKPI-2",status:"LULUS"},
+            {no:34,nisn:"0071184860",nama:"DAMAR PANGESTU",kelas:"XII NKPI-2",status:"LULUS"},
+            {no:35,nisn:"0072970125",nama:"DANIS FADIL RONIYANTO",kelas:"XII NKPI-2",status:"LULUS"},
+            {no:36,nisn:"0088848870",nama:"DAVA IKHSAN MAULANA",kelas:"XII NKPI-2",status:"LULUS"},
+            {no:37,nisn:"0081980904",nama:"DESCA RAFAN FARISKI",kelas:"XII NKPI-2",status:"LULUS"},
+            {no:38,nisn:"0075167326",nama:"DZIKI ANDIKA VERYANTO",kelas:"XII NKPI-2",status:"LULUS"},
+            {no:39,nisn:"0074788082",nama:"FATCHURIZAL ANGGA ARIFIN",kelas:"XII NKPI-2",status:"LULUS"},
+            {no:40,nisn:"0083278914",nama:"GALANG EKA PRADITA",kelas:"XII NKPI-2",status:"LULUS"},
+            {no:41,nisn:"0063668908",nama:"JANUAR RIZKY ABADI",kelas:"XII NKPI-2",status:"LULUS"},
+            {no:42,nisn:"0085720659",nama:"LAURENTIUS BIMA SAPUTRA",kelas:"XII NKPI-2",status:"LULUS"},
+            {no:43,nisn:"0085313846",nama:"MARFEL BIMA SETIAWAN",kelas:"XII NKPI-2",status:"LULUS"},
+            {no:44,nisn:"0074373225",nama:"MUHAMMAD BAGUS PRIYANTO",kelas:"XII NKPI-2",status:"LULUS"},
+            {no:45,nisn:"0084739545",nama:"MUHAMMAD DANDI MUSTOFA",kelas:"XII NKPI-2",status:"LULUS"},
+            {no:46,nisn:"0081476628",nama:"RAFFA MIDFIELDER FIRSTIANNO",kelas:"XII NKPI-2",status:"LULUS"},
+            {no:47,nisn:"0082898161",nama:"RANGGA KURNIA RAMADHAN",kelas:"XII NKPI-2",status:"LULUS"},
+            {no:48,nisn:"0081063553",nama:"RENO SATRIO PRATAMA",kelas:"XII NKPI-2",status:"LULUS"},
+            {no:49,nisn:"0077735909",nama:"REZA ASDITYA TYOSO",kelas:"XII NKPI-2",status:"LULUS"},
+            {no:50,nisn:"0089005933",nama:"RIDZKY BAGOES SAPUTRA",kelas:"XII NKPI-2",status:"LULUS"},
+            {no:51,nisn:"0084126549",nama:"RIZQI DANIS SYAHPUTRA",kelas:"XII NKPI-2",status:"LULUS"},
+            {no:52,nisn:"0081888471",nama:"ADINDA PUTRI AVRIANI",kelas:"XII APHPi",status:"LULUS"},
+            {no:53,nisn:"0075911115",nama:"AGENG NUR ANGGREINI",kelas:"XII APHPi",status:"LULUS"},
+            {no:54,nisn:"0072136330",nama:"ARI SUKMA RADA WERDININGSIH",kelas:"XII APHPi",status:"LULUS"},
+            {no:55,nisn:"0081473073",nama:"ARIF MAULANA",kelas:"XII APHPi",status:"LULUS"},
+            {no:56,nisn:"0089557758",nama:"AYUDIA CHELSEA PUTRI",kelas:"XII APHPi",status:"LULUS"},
+            {no:57,nisn:"0069017816",nama:"BENI SETIAWAN",kelas:"XII APHPi",status:"LULUS"},
+            {no:58,nisn:"0076225444",nama:"BUNGA FAHZIRA",kelas:"XII APHPi",status:"LULUS"},
+            {no:59,nisn:"0083511323",nama:"CHELSEA NANDRIA TAULADANI",kelas:"XII APHPi",status:"LULUS"},
+            {no:60,nisn:"0084248179",nama:"DELA TRIASTUTI",kelas:"XII APHPi",status:"LULUS"},
+            {no:61,nisn:"0073095527",nama:"FAISAL PRIYADI PRATAMA",kelas:"XII APHPi",status:"LULUS"},
+            {no:62,nisn:"0078860582",nama:"FITTRI NISCAHYATI",kelas:"XII APHPi",status:"LULUS"},
+            {no:63,nisn:"0079937061",nama:"HANOORA VINKA",kelas:"XII APHPi",status:"LULUS"},
+            {no:64,nisn:"0074825667",nama:"HANUM AULIA ULUL AZMI",kelas:"XII APHPi",status:"LULUS"},
+            {no:65,nisn:"0085912100",nama:"HELGA SAKTIYASA",kelas:"XII APHPi",status:"LULUS"},
+            {no:66,nisn:"0081367988",nama:"IKA ISTIKHOMAH",kelas:"XII APHPi",status:"LULUS"},
+            {no:67,nisn:"0082001628",nama:"IMELDA NURAINI PURBOSARI SYAHPUTRI",kelas:"XII APHPi",status:"LULUS"},
+            {no:68,nisn:"0077819271",nama:"IVAN EKO SAPUTRA",kelas:"XII APHPi",status:"LULUS"},
+            {no:69,nisn:"0072105365",nama:"LAILLA ADE RAHMA",kelas:"XII APHPi",status:"LULUS"},
+            {no:70,nisn:"0083525260",nama:"MEY LANY",kelas:"XII APHPi",status:"LULUS"},
+            {no:71,nisn:"0079263222",nama:"MUHAMMAD SUBKHAN SOLEH",kelas:"XII APHPi",status:"LULUS"},
+            {no:72,nisn:"0078327200",nama:"NENG AGIS ZELIYANTI",kelas:"XII APHPi",status:"LULUS"},
+            {no:73,nisn:"0088776806",nama:"NISRILNA SHAFAA ULAYYA",kelas:"XII APHPi",status:"LULUS"},
+            {no:74,nisn:"0086075122",nama:"NOVI PUSPITA SARI",kelas:"XII APHPi",status:"LULUS"},
+            {no:75,nisn:"0082866336",nama:"RAID SHADIQ KAJANA MANIK",kelas:"XII APHPi",status:"LULUS"},
+            {no:76,nisn:"0075072593",nama:"RAMADHANI DWI YUDHANTORO",kelas:"XII APHPi",status:"LULUS"},
+            {no:77,nisn:"0084536783",nama:"REGITA PUTRI GREVINDA",kelas:"XII APHPi",status:"LULUS"},
+            {no:78,nisn:"0079506098",nama:"RITA FADILLAH",kelas:"XII APHPi",status:"LULUS"},
+            {no:79,nisn:"0082738271",nama:"TIANI ZAHWA NUR ANNISA",kelas:"XII APHPi",status:"LULUS"},
+            {no:80,nisn:"0077996380",nama:"ZALIKA SELVIA DEWI",kelas:"XII APHPi",status:"LULUS"},
+            {no:81,nisn:"0066333760",nama:"ZANUAR AMELIA PUTRI",kelas:"XII APHPi",status:"LULUS"},
+            {no:82,nisn:"0079934448",nama:"ADITYA CAHYO NUGROHO",kelas:"XII RPL-1",status:"LULUS"},
+            {no:83,nisn:"0084814789",nama:"ADITYA NUR FEBRIANSYAH",kelas:"XII RPL-1",status:"LULUS"},
+            {no:84,nisn:"0064474441",nama:"AFGAN SYAKURO",kelas:"XII RPL-1",status:"LULUS"},
+            {no:85,nisn:"0084631797",nama:"ALKAHFI RIZKY MAULANA HASBIYANTO",kelas:"XII RPL-1",status:"LULUS"},
+            {no:86,nisn:"0077495397",nama:"ANGGA SETIAWAN",kelas:"XII RPL-1",status:"LULUS"},
+            {no:87,nisn:"0086660542",nama:"ANIDA KHOIRANI",kelas:"XII RPL-1",status:"LULUS"},
+            {no:88,nisn:"0082788186",nama:"ARIFIN MUHAMMAD IQBAL",kelas:"XII RPL-1",status:"LULUS"},
+            {no:89,nisn:"0072016579",nama:"ALVIN BARAHMA PUTRA",kelas:"XII RPL-1",status:"LULUS"},
+            {no:90,nisn:"0078778545",nama:"DEVI DWI NURAINI",kelas:"XII RPL-1",status:"LULUS"},
+            {no:91,nisn:"0084777136",nama:"DIVA PUSPITADEWI",kelas:"XII RPL-1",status:"LULUS"},
+            {no:92,nisn:"0082509677",nama:"FADLAN NUR ARIFIN",kelas:"XII RPL-1",status:"LULUS"},
+            {no:93,nisn:"0064228985",nama:"FADLI KUKUH ROHMAJATI",kelas:"XII RPL-1",status:"LULUS"},
+            {no:94,nisn:"0089351190",nama:"FAFELLIO GIENOLA",kelas:"XII RPL-1",status:"LULUS"},
+            {no:95,nisn:"0089703507",nama:"FAKHRI DZATU RAHMAN",kelas:"XII RPL-1",status:"LULUS"},
+            {no:96,nisn:"0089544114",nama:"FERRY NURISWAN YAZID",kelas:"XII RPL-1",status:"LULUS"},
+            {no:97,nisn:"0087095105",nama:"MARLINA SETYA NINGRUM",kelas:"XII RPL-1",status:"LULUS"},
+            {no:98,nisn:"0083352848",nama:"MARSELA AJENG LESTARI",kelas:"XII RPL-1",status:"LULUS"},
+            {no:99,nisn:"0069518118",nama:"MUHAMAD ADITYA SAPUTRA",kelas:"XII RPL-1",status:"LULUS"},
+            {no:100,nisn:"0084408670",nama:"MUTIA RIZKI KURNIAWATI",kelas:"XII RPL-1",status:"LULUS"},
+            {no:101,nisn:"0071071455",nama:"NADIF RAMADHANI",kelas:"XII RPL-1",status:"LULUS"},
+            {no:102,nisn:"0073000911",nama:"QURATUL YUDEA ATIQAH",kelas:"XII RPL-1",status:"LULUS"},
+            {no:103,nisn:"0075520088",nama:"RAHMAT ANTOKO",kelas:"XII RPL-1",status:"LULUS"},
+            {no:104,nisn:"0081582896",nama:"REZA ROHANIFAH",kelas:"XII RPL-1",status:"LULUS"},
+            {no:105,nisn:"0077493386",nama:"RIZKY APRIANZAH",kelas:"XII RPL-1",status:"LULUS"},
+            {no:106,nisn:"0081915330",nama:"SAID AL HARIS",kelas:"XII RPL-1",status:"LULUS"},
+            {no:107,nisn:"0077409545",nama:"SALSABILLA FITRI CHOIRUNNISA",kelas:"XII RPL-1",status:"LULUS"},
+            {no:108,nisn:"0085746058",nama:"TAUFIQ KHAIRAN NAFI",kelas:"XII RPL-1",status:"LULUS"},
+            {no:109,nisn:"0076575179",nama:"TEJO YUDIANTORO",kelas:"XII RPL-1",status:"LULUS"},
+            {no:110,nisn:"0064283386",nama:"TRI DITO PAMUNGKAS",kelas:"XII RPL-1",status:"LULUS"},
+            {no:111,nisn:"0075653552",nama:"TRI HAYYUNINGRUM",kelas:"XII RPL-1",status:"LULUS"},
+            {no:112,nisn:"0085917757",nama:"ZAHRA NUR SHOLIKHAH",kelas:"XII RPL-1",status:"LULUS"},
+            {no:113,nisn:"0087195505",nama:"ZAHRA NURAZIZA",kelas:"XII RPL-1",status:"LULUS"},
+            {no:114,nisn:"0079754139",nama:"AHMAD FAIZ RAMADHAN",kelas:"XII RPL-2",status:"LULUS"},
+            {no:115,nisn:"0082482696",nama:"ALIFI DINAL MAULANA",kelas:"XII RPL-2",status:"LULUS"},
+            {no:116,nisn:"0079812460",nama:"AMANDA CYNTYA BELLA",kelas:"XII RPL-2",status:"LULUS"},
+            {no:117,nisn:"0085015110",nama:"ANANDA NUR MAULANA",kelas:"XII RPL-2",status:"LULUS"},
+            {no:118,nisn:"0071933857",nama:"ANGGA ARYO PRASTYO",kelas:"XII RPL-2",status:"LULUS"},
+            {no:119,nisn:"0079170918",nama:"BAYU CAHYO ANGGORO",kelas:"XII RPL-2",status:"LULUS"},
+            {no:120,nisn:"0073426791",nama:"CHARISDA RIZKY",kelas:"XII RPL-2",status:"LULUS"},
+            {no:121,nisn:"0088551078",nama:"EZITYO AKMAR PRADIGTYA",kelas:"XII RPL-2",status:"LULUS"},
+            {no:122,nisn:"0062984741",nama:"FAHRIEL LINDU CECARIALDI ALAMSYAH",kelas:"XII RPL-2	",status:"LULUS"},
+            {no:123,nisn:"0085764025",nama:"FAIQ NADHIF ADIWINATA",kelas:"XII RPL-2",status:"LULUS"},
+            {no:124,nisn:"0089626577",nama:"FAJAR DWI ANTORO",kelas:"XII RPL-2",status:"LULUS"},
+            {no:125,nisn:"0081754062",nama:"HESTI HENDARTI",kelas:"XII RPL-2",status:"LULUS"},
+            {no:126,nisn:"0085795471",nama:"HZA MAULANA ALFARISI",kelas:"XII RPL-2",status:"LULUS"},
+            {no:127,nisn:"0059674644",nama:"ISMA WARDANI",kelas:"XII RPL-2",status:"LULUS"},
+            {no:128,nisn:"0088099272",nama:"MAYNANDA INTAN MARCELLA",kelas:"XII RPL-2",status:"LULUS"},
+            {no:129,nisn:"0079445201",nama:"MUHAMMAD AKBAR MAULANA",kelas:"XII RPL-2",status:"LULUS"},
+            {no:130,nisn:"0071759286",nama:"MUHAMMAD ALFIN NI'AM",kelas:"XII RPL-2",status:"LULUS"},
+            {no:131,nisn:"0071722438",nama:"NAURA ZAHRA ROSITA",kelas:"XII RPL-2",status:"LULUS"},
+            {no:132,nisn:"0071378643",nama:"NUR HALIMAH",kelas:"XII RPL-2",status:"LULUS"},
+            {no:133,nisn:"0074358320",nama:"NUR JANAH",kelas:"XII RPL-2",status:"LULUS"},
+            {no:134,nisn:"0071334539",nama:"NUR RATRI BEKTI SHINTA TAMA",kelas:"XII RPL-2",status:"LULUS"},
+            {no:135,nisn:"0087798679",nama:"NURMA WIDYANINGSIH",kelas:"XII RPL-2",status:"LULUS"},
+            {no:136,nisn:"0077065228",nama:"OCTORENO RADITYA",kelas:"XII RPL-2",status:"LULUS"},
+            {no:137,nisn:"0071030271",nama:"RAIHAN FADHIL NASRULLAH",kelas:"XII RPL-2",status:"LULUS"},
+            {no:138,nisn:"0073777313",nama:"RAMA HARRY WIDIANTO",kelas:"XII RPL-2",status:"LULUS"},
+            {no:139,nisn:"0085457630",nama:"RIZKY MIFTAKHUL HUDA",kelas:"XII RPL-2",status:"LULUS"},
+            {no:140,nisn:"0085773125",nama:"RIZZLA REVA FAUZIYAH",kelas:"XII RPL-2",status:"LULUS"},
+            {no:141,nisn:"0076456175",nama:"SRIYANI",kelas:"XII RPL-2",status:"LULUS"},
+            {no:142,nisn:"0071377754",nama:"WAN M AL HAYYU",kelas:"XII RPL-2",status:"LULUS"},
+            {no:143,nisn:"0077510480",nama:"WAN M AL WALIYYU",kelas:"XII RPL-2",status:"LULUS"},
+            {no:144,nisn:"0089702224",nama:"ZUHRI BAGAS ANDRI PRATAMA",kelas:"XII RPL-2",status:"LULUS"},
+            {no:145,nisn:"0075809978",nama:"AHMAD TEGAR AMINUDIN",kelas:"XII TKR-1",status:"LULUS"},
+            {no:146,nisn:"0071622114",nama:"ANDHICA NUR BASTRIAN WIBAWA",kelas:"XII TKR-1",status:"LULUS"},
+            {no:147,nisn:"0079629307",nama:"ANDIKA SURYA WIJAYA",kelas:"XII TKR-1",status:"LULUS"},
+            {no:148,nisn:"0085817193",nama:"ARYA SAPUTRA",kelas:"XII TKR-1",status:"LULUS"},
+            {no:149,nisn:"0085191512",nama:"BARA ADY PRATAMA",kelas:"XII TKR-1",status:"LULUS"},
+            {no:150,nisn:"0089406961",nama:"DIMAS MAULANA PUTRA",kelas:"XII TKR-1",status:"LULUS"},
+            {no:151,nisn:"0075281338",nama:"DIMAS PRABOWO",kelas:"XII TKR-1",status:"LULUS"},
+            {no:152,nisn:"0081839979",nama:"DWI NUGROHO",kelas:"XII TKR-1",status:"LULUS"},
+            {no:153,nisn:"0071669074",nama:"FAISAL AHMAD RABBANI",kelas:"XII TKR-1",status:"LULUS"},
+            {no:154,nisn:"0083634662",nama:"FAJRI KURNIAWAN",kelas:"XII TKR-1",status:"LULUS"},
+            {no:155,nisn:"0084865132",nama:"FAKHRI IKHSANTIYA FIRDAUS",kelas:"XII TKR-1",status:"LULUS"},
+            {no:156,nisn:"0078830868",nama:"FAREL ACHA CRADYSTYA PUTRA",kelas:"XII TKR-1",status:"LULUS"},
+            {no:157,nisn:"0073115029",nama:"IKHSAN BIMA ARDIANSYAH",kelas:"XII TKR-1",status:"LULUS"},
+            {no:158,nisn:"0077592757",nama:"ILHAM FATHURRAHMAN",kelas:"XII TKR-1",status:"LULUS"},
+            {no:159,nisn:"0085348153",nama:"ILHAM MUGHNI",kelas:"XII TKR-1",status:"LULUS"},
+            {no:160,nisn:"3078574812",nama:"KAFIN AHMAD MUSHOFA",kelas:"XII TKR-1",status:"LULUS"},
+            {no:161,nisn:"0083578475",nama:"MOCHA NOFRICHO",kelas:"XII TKR-1",status:"LULUS"},
+            {no:162,nisn:"0061564560",nama:"MUHAMMAD FARHAN PRA RAMADHAN",kelas:"XII TKR-1",status:"LULUS"},
+            {no:163,nisn:"0071524973",nama:"MUHAMMAD NA'IM",kelas:"XII TKR-1",status:"LULUS"},
+            {no:164,nisn:"0072813098",nama:"MUHAMMAD NABIL SHIDQI",kelas:"XII TKR-1",status:"LULUS"},
+            {no:165,nisn:"0088416949",nama:"NAUFAL AL IHSAN",kelas:"XII TKR-1",status:"LULUS"},
+            {no:166,nisn:"0073228297",nama:"NOVIANTO CATUR NUGROHO",kelas:"XII TKR-1",status:"LULUS"},
+            {no:167,nisn:"0072165900",nama:"NUR KHOLIS FAHMI",kelas:"XII TKR-1",status:"LULUS"},
+            {no:168,nisn:"0075414906",nama:"NUR ROHMAD FEBRIYANTO",kelas:"XII TKR-1",status:"LULUS"},
+            {no:169,nisn:"0072521132",nama:"RAFA ADITYA WIDYANA",kelas:"XII TKR-1",status:"LULUS"},
+            {no:170,nisn:"0081783360",nama:"RAFLI DWI PRASETYO",kelas:"XII TKR-1",status:"LULUS"},
+            {no:171,nisn:"0076231544",nama:"RIZKY DENI SHAPUTRA",kelas:"XII TKR-1",status:"LULUS"},
+            {no:172,nisn:"0074598785",nama:"RIZQI EKA SAPUTRA",kelas:"XII TKR-1",status:"LULUS"},
+            {no:173,nisn:"0083965093",nama:"ROHMAT ARYANTO",kelas:"XII TKR-1",status:"LULUS"},
+            {no:174,nisn:"0073173684",nama:"RULLYANTA PUTRA PRATAMA",kelas:"XII TKR-1",status:"LULUS"},
+            {no:175,nisn:"0087066809",nama:"TAUFIK ADHITYA RAHMAN",kelas:"XII TKR-1",status:"LULUS"},
+            {no:176,nisn:"0062756041",nama:"TEGAR SAPTO NUGROHO",kelas:"XII TKR-1",status:"LULUS"},
+            {no:177,nisn:"0085428849",nama:"YEARTA OLOAND MARPAUNG",kelas:"XII TKR-1",status:"LULUS"},
+            {no:178,nisn:"0077294298",nama:"ADRIAN GIBRAN RAMADHAN",kelas:"XII TKR-2",status:"LULUS"},
+            {no:179,nisn:"0083815281",nama:"AFRIZAL BAGAS SAPUTRA",kelas:"XII TKR-2",status:"LULUS"},
+            {no:180,nisn:"0065414220",nama:"AHMAD TATAQ NOVIARDIANSYAH",kelas:"XII TKR-2",status:"LULUS"},
+            {no:181,nisn:"0086943262",nama:"ALKO ALFIAN REFANO",kelas:"XII TKR-2",status:"LULUS"},
+            {no:182,nisn:"0084849944",nama:"ALVIN NANDA FAHRUDIN",kelas:"XII TKR-2",status:"LULUS"},
+            {no:183,nisn:"0083855870",nama:"ARI SENA WARDANA",kelas:"XII TKR-2",status:"LULUS"},
+            {no:184,nisn:"0074611075",nama:"BAGAS ARI MURTI",kelas:"XII TKR-2",status:"LULUS"},
+            {no:185,nisn:"0076772916",nama:"BINTANG MAHARDHIKA PUTRA",kelas:"XII TKR-2",status:"LULUS"},
+            {no:186,nisn:"0086354736",nama:"BUDI SANTOSO",kelas:"XII TKR-2",status:"LULUS"},
+            {no:187,nisn:"0089174820",nama:"CIKKO ACHMAD HIRZAQI",kelas:"XII TKR-2",status:"LULUS"},
+            {no:188,nisn:"0082015936",nama:"DIAN APRILIA DEWI",kelas:"XII TKR-2",status:"LULUS"},
+            {no:189,nisn:"0079294569",nama:"GARDA AULIA WAHYU ANGGARA",kelas:"XII TKR-2",status:"LULUS"},
+            {no:190,nisn:"0075419260",nama:"IMAM ADONIS ATMAWIJAYA",kelas:"XII TKR-2",status:"LULUS"},
+            {no:191,nisn:"0073493605",nama:"IVAN PRAYOGO",kelas:"XII TKR-2",status:"LULUS"},
+            {no:192,nisn:"0085278771",nama:"JANUAR HABIB NUGROHO",kelas:"XII TKR-2",status:"LULUS"},
+            {no:193,nisn:"0088824207",nama:"JOE DAVIN",kelas:"XII TKR-2",status:"LULUS"},
+            {no:194,nisn:"0083107741",nama:"MOHAMMAD ALIEF YULIAN SHAH",kelas:"XII TKR-2",status:"LULUS"},
+            {no:195,nisn:"0081542903",nama:"MUHAMMAD ADHI SAPUTRA",kelas:"XII TKR-2",status:"LULUS"},
+            {no:196,nisn:"0081417110",nama:"NAJIB MUBAROK",kelas:"XII TKR-2",status:"LULUS"},
+            {no:197,nisn:"0079040937",nama:"RACHEL MAULA FIRNANDA",kelas:"XII TKR-2",status:"LULUS"},
+            {no:198,nisn:"0075235570",nama:"RAFI AHMAD AUFA SYARIFUDDIN",kelas:"XII TKR-2",status:"LULUS"},
+            {no:199,nisn:"0079732765",nama:"REYHAN ARDIANSYAH",kelas:"XII TKR-2",status:"LULUS"},
+            {no:200,nisn:"0084348236",nama:"RIDWAN KHOIRI",kelas:"XII TKR-2",status:"LULUS"},
+            {no:201,nisn:"0072158378",nama:"ROBERTO DIAZ ERVIN INANDI",kelas:"XII TKR-2",status:"LULUS"},
+            {no:202,nisn:"0082336455",nama:"SATRIO TEGAR PANGESTU",kelas:"XII TKR-2",status:"LULUS"},
+            {no:203,nisn:"0084619403",nama:"SULTHON NUR FAIZ",kelas:"XII TKR-2",status:"LULUS"},
+            {no:204,nisn:"0075407930",nama:"TITAN ALEXANDRA",kelas:"XII TKR-2",status:"LULUS"},
+            {no:205,nisn:"0088773806",nama:"TOMI KURNIAWAN",kelas:"XII TKR-2",status:"LULUS"},
+            {no:206,nisn:"0081670321",nama:"WISNU AGUNG SETIYAWAN",kelas:"XII TKR-2",status:"LULUS"},
+            {no:207,nisn:"0065669374",nama:"YANU CAHYA ROMADHAN",kelas:"XII TKR-2",status:"LULUS"},
+            {no:208,nisn:"0086720591",nama:"AJI NUR APRIANTO",kelas:"XII TBKR",status:"LULUS"},
+            {no:209,nisn:"0089532782",nama:"ANDHIKA RIFKY KURNIAWAN",kelas:"XII TBKR",status:"LULUS"},
+            {no:210,nisn:"0073316182",nama:"ANDRI AL IKHSAN",kelas:"XII TBKR",status:"LULUS"},
+            {no:211,nisn:"0074121618",nama:"AVIROKA ANUGRAH PUTRA",kelas:"XII TBKR",status:"LULUS"},
+            {no:212,nisn:"0088421375",nama:"CAHYO PUTRO HARTOYO",kelas:"XII TBKR",status:"LULUS"},
+            {no:213,nisn:"0079412790",nama:"DENTA ARYA PUTRA PRATAMA",kelas:"XII TBKR",status:"LULUS"},
+            {no:214,nisn:"0076523716",nama:"DIMAS ADITYA PRATAMA",kelas:"XII TBKR",status:"LULUS"},
+            {no:215,nisn:"0077125793",nama:"FATONI IKHSAL DAFFA",kelas:"XII TBKR",status:"LULUS"},
+            {no:216,nisn:"0081355361",nama:"FEBRIANSYAH",kelas:"XII TBKR",status:"LULUS"},
+            {no:217,nisn:"0076230085",nama:"FIKRI ARYA BUDI",kelas:"XII TBKR",status:"LULUS"},
+            {no:218,nisn:"0088937126",nama:"GALANG EKO SAPUTRA",kelas:"XII TBKR",status:"LULUS"},
+            {no:219,nisn:"0078218911",nama:"GENTA SANGGA NUGRAHA",kelas:"XII TBKR",status:"LULUS"},
+            {no:220,nisn:"0079648858",nama:"GRESY VERDINO ARTHASA",kelas:"XII TBKR",status:"LULUS"},
+            {no:221,nisn:"0086562365",nama:"HANIF ALIFIAN",kelas:"XII TBKR",status:"LULUS"},
+            {no:222,nisn:"0089502109",nama:"IDRIS RIFKI SETIAWAN",kelas:"XII TBKR",status:"LULUS"},
+            {no:223,nisn:"0074737402",nama:"IRVAN ARDI ANSYAH",kelas:"XII TBKR",status:"LULUS"},
+            {no:224,nisn:"0075709017",nama:"ISMAIL WAHYU NUGROHO",kelas:"XII TBKR",status:"LULUS"},
+            {no:225,nisn:"0078689556",nama:"IVAN PUTRA RAMADHAN",kelas:"XII TBKR",status:"LULUS"},
+            {no:226,nisn:"0087850283",nama:"MUH FAHRIEL ALIUDIN MUSTAFA",kelas:"XII TBKR",status:"LULUS"},
+            {no:227,nisn:"0077397980",nama:"NOVA MAULANA ARDIANSYAH",kelas:"XII TBKR",status:"LULUS"},
+            {no:228,nisn:"0072680731",nama:"NUR IKHSAN NUDIN",kelas:"XII TBKR",status:"LULUS"},
+            {no:229,nisn:"0072714454",nama:"PRAMUDYA WIRATAMA",kelas:"XII TBKR",status:"LULUS"},
+            {no:230,nisn:"0077111119",nama:"RAIHAN NUR WAKHID",kelas:"XII TBKR",status:"LULUS"},
+            {no:231,nisn:"0081700448",nama:"RINO YUSUF MAULANA",kelas:"XII TBKR",status:"LULUS"},
+            {no:232,nisn:"0083229800",nama:"TONI ADIROHMAN",kelas:"XII TBKR",status:"LULUS"},
+            {no:233,nisn:"0079357910",nama:"VERI REFANSAH MAULANA",kelas:"XII TBKR",status:"LULUS"},
+            {no:234,nisn:"0076386767",nama:"YAYANG DWI SAPUTRA",kelas:"XII TBKR",status:"LULUS"},
+            {no:235,nisn:"0074145816",nama:"ZAKI NAUFAL FALIH",kelas:"XII TBKR",status:"LULUS"},
+            {no:236,nisn:"0088063046",nama:"ZAUFRAN ENGGAR NARWANTA",kelas:"XII TBKR",status:"LULUS"},
+            {no:237,nisn:"0078699842",nama:"AMIR SYAWALUDIEN",kelas:"XII TKPI",status:"LULUS"},
+            {no:238,nisn:"0068169048",nama:"ANARGYA VEDA WIDJAYANTO",kelas:"XII TKPI",status:"LULUS"},
+            {no:239,nisn:"0078845496",nama:"ARDAN EGY HERLINO",kelas:"XII TKPI",status:"LULUS"},
+            {no:240,nisn:"0078433370",nama:"ARIFIN APRIYANTO",kelas:"XII TKPI",status:"LULUS"},
+            {no:241,nisn:"0076414704",nama:"DEFFO NUR QISTAN",kelas:"XII TKPI",status:"LULUS"},
+            {no:242,nisn:"0079952557",nama:"FAHRIZAL NOOR FADIL",kelas:"XII TKPI",status:"LULUS"},
+            {no:243,nisn:"0076501775",nama:"HALAN WIJAYA",kelas:"XII TKPI",status:"LULUS"},
+            {no:244,nisn:"0084506245",nama:"IMAM ARIEF WICAKSONO",kelas:"XII TKPI",status:"LULUS"},
+            {no:245,nisn:"0082282174",nama:"LANJAR MUSTOFA",kelas:"XII TKPI",status:"LULUS"},
+            {no:246,nisn:"0078494701",nama:"MUHAMMAD GILANG NUGRAHA",kelas:"XII TKPI",status:"LULUS"},
+            {no:247,nisn:"0074288149",nama:"MUHAMMAD ILHAM GALIH PUTRA RAMADHANI",kelas:"XII TKPI",status:"LULUS"},
+            {no:248,nisn:"0078740160",nama:"MUHAMMAD MIFTAKHUL KHOIR",kelas:"XII TKPI",status:"LULUS"},
+            {no:249,nisn:"0089209742",nama:"MUHAMMAD NAILUL MUNA",kelas:"XII TKPI",status:"LULUS"},
+            {no:250,nisn:"0086685233",nama:"MUHAMMAD RANGGA SAPUTRA",kelas:"XII TKPI",status:"LULUS"},
+            {no:251,nisn:"0086599039",nama:"MUHAMMAD REHAN PRATAMA",kelas:"XII TKPI",status:"LULUS"},
+            {no:252,nisn:"0064343141",nama:"MUHAMMAD YOGA AGUSTRI BAWONO",kelas:"XII TKPI",status:"LULUS"},
+            {no:253,nisn:"0078716335",nama:"OKTA YOGA PRADANA",kelas:"XII TKPI",status:"LULUS"},
+            {no:254,nisn:"0081259995",nama:"RANGGA BAYU SAPUTRA",kelas:"XII TKPI",status:"LULUS"},
+            {no:255,nisn:"0062140903",nama:"YONGKY RIVANDA",kelas:"XII TKPI",status:"LULUS"},
+            {no:256,nisn:"0073384366",nama:"YUSUF ROMADHON",kelas:"XII TKPI",status:"LULUS"},
+            {no:257,nisn:"0081167026",nama:"AL MAIDA FAISSYATUL NAFSIAH",kelas:"XII APAT",status:"LULUS"},
+            {no:258,nisn:"0079851410",nama:"ALFINA PUTRI SRI UTAMI",kelas:"XII APAT",status:"LULUS"},
+            {no:259,nisn:"0072115608",nama:"ALVIAN SURYA RAMADHAN",kelas:"XII APAT",status:"LULUS"},
+            {no:260,nisn:"0074441016",nama:"ANDHIKA PETRA PRATAMA",kelas:"XII APAT",status:"LULUS"},
+            {no:261,nisn:"0085113925",nama:"APRILIO YUSUF SYAIFUDDIN",kelas:"XII APAT",status:"LULUS"},
+            {no:262,nisn:"0079477086",nama:"DERISTIN YOGGA AFIANDA",kelas:"XII APAT",status:"LULUS"},
+            {no:263,nisn:"0073784899",nama:"ERWIN BAHRUDIN",kelas:"XII APAT",status:"LULUS"},
+            {no:264,nisn:"0084886964",nama:"FAHLAN AGUS NUR HIDAYAT",kelas:"XII APAT",status:"LULUS"},
+            {no:265,nisn:"0077280722",nama:"FAIZAL NUR AFFANDI",kelas:"XII APAT",status:"LULUS"},
+            {no:266,nisn:"0075933104",nama:"FARHAN ZARIFKI",kelas:"XII APAT",status:"LULUS"},
+            {no:267,nisn:"0077723415",nama:"GUS MA'RUF SOLIKHIN",kelas:"XII APAT",status:"LULUS"},
+            {no:268,nisn:"0086895016",nama:"HAFIZH ULA AZRUL ANANDA",kelas:"XII APAT",status:"LULUS"},
+            {no:269,nisn:"0076605510",nama:"IQBAL LINGGA ERWAN SAPUTRA",kelas:"XII APAT",status:"LULUS"},
+            {no:270,nisn:"0071246296",nama:"IQBAL ZAKY RACHMANDA",kelas:"XII APAT",status:"LULUS"},
+            {no:271,nisn:"0075007542",nama:"ISNU NUR FITRIANTO",kelas:"XII APAT",status:"LULUS"},
+            {no:272,nisn:"0074482589",nama:"KHOIRUL MUNA",kelas:"XII APAT",status:"LULUS"},
+            {no:273,nisn:"0066147431",nama:"LUTFI FAHRIZAL RIZKI",kelas:"XII APAT",status:"LULUS"},
+            {no:274,nisn:"0087256374",nama:"MOH. HABIBUR ROHMAN	",kelas:"XII APAT",status:"LULUS"},
+            {no:275,nisn:"0081573949",nama:"MUHAMMAD VICKY YULIANTO",kelas:"XII APAT",status:"LULUS"},
+            {no:276,nisn:"0086227307",nama:"NAJELA PUTRI",kelas:"XII APAT",status:"LULUS"},
+            {no:277,nisn:"0083346026",nama:"NAUFAL MUHAMMAD RAIHAN",kelas:"XII APAT",status:"LULUS"},
+            {no:278,nisn:"0085916702",nama:"PUTRI AGUSTIN",kelas:"XII APAT",status:"LULUS"},
+            {no:279,nisn:"0087822377",nama:"RIUN ANDIKA SARDANI	",kelas:"XII APAT",status:"LULUS"},
+            {no:280,nisn:"0078078989",nama:"SALWA ZAHRA BRILLYANA SYIFFA",kelas:"XII APAT",status:"LULUS"},
+            {no:281,nisn:"0077441685",nama:"YORDAN AHMAD SAIFUDDIN ROSIDI",kelas:"XII APAT",status:"LULUS"},
+            {no:282,nisn:"0084514762",nama:"ZAKY NURDI PRATAMA",kelas:"XII APAT",status:"LULUS"},
+            {no:283,nisn:"0084189365",nama:"ZULHAR PRATAMA",kelas:"XII APAT",status:"LULUS"},
+        ];
+
+        let schoolLogoData = null;
+
+        const defaultConfig = {
+            school_name: "SMK Negeri 1 Sanden",
+            announcement_title: "Pengumuman Kelulusan",
+            background_color: "#0f172a",
+            surface_color: "#ffffff",
+            text_color: "#1f2937",
+            primary_action_color: "#1e3a5f",
+            secondary_action_color: "#d4a843"
+        };
+
+        window.elementSdk.init({
+            defaultConfig,
+            onConfigChange: async (config) => {
+                const name = config.school_name || defaultConfig.school_name;
+                const title = config.announcement_title || defaultConfig.announcement_title;
+                document.getElementById('schoolTitle').textContent = name;
+                document.getElementById('resultSchoolName').textContent = name;
+                document.getElementById('annTitle').textContent = title;
+            },
+            mapToCapabilities: (config) => ({
+                recolorables: [
+                    { get: () => config.background_color || defaultConfig.background_color, set: (v) => { config.background_color = v; window.elementSdk.setConfig({background_color:v}); }},
+                    { get: () => config.surface_color || defaultConfig.surface_color, set: (v) => { config.surface_color = v; window.elementSdk.setConfig({surface_color:v}); }},
+                    { get: () => config.text_color || defaultConfig.text_color, set: (v) => { config.text_color = v; window.elementSdk.setConfig({text_color:v}); }},
+                    { get: () => config.primary_action_color || defaultConfig.primary_action_color, set: (v) => { config.primary_action_color = v; window.elementSdk.setConfig({primary_action_color:v}); }},
+                    { get: () => config.secondary_action_color || defaultConfig.secondary_action_color, set: (v) => { config.secondary_action_color = v; window.elementSdk.setConfig({secondary_action_color:v}); }}
+                ],
+                borderables: [],
+                fontEditable: undefined,
+                fontSizeable: undefined
+            }),
+            mapToEditPanelValues: (config) => new Map([
+                ["school_name", config.school_name || defaultConfig.school_name],
+                ["announcement_title", config.announcement_title || defaultConfig.announcement_title]
+            ])
+        });
+
+        function checkResult() {
+            const nama = document.getElementById('inputNama').value.trim().toUpperCase();
+            const nisn = document.getElementById('inputNISN').value.trim();
+            const errEl = document.getElementById('loginError');
+
+            if (!nama || !nisn) {
+                errEl.textContent = "Silakan masukkan Nama dan NISN.";
+                errEl.classList.remove('hidden');
+                return;
+            }
+
+            const student = studentData.find(s => s.nisn === nisn && s.nama.toUpperCase() === nama);
+            if (!student) {
+                errEl.textContent = "Data tidak ditemukan. Pastikan Nama dan NISN sudah benar.";
+                errEl.classList.remove('hidden');
+                return;
+            }
+
+            errEl.classList.add('hidden');
+            showResult(student);
+        }
+
+        function showResult(student) {
+            document.getElementById('loginPage').classList.add('hidden');
+            document.getElementById('resultPage').classList.remove('hidden');
+
+            if (schoolLogoData) {
+                document.getElementById('resultLogo').src = schoolLogoData;
+                document.getElementById('resultLogo').classList.remove('hidden');
+                document.getElementById('resultLogoFallback').classList.add('hidden');
+            }
+
+            const content = document.getElementById('resultContent');
+            const isLulus = student.status.toUpperCase() === "LULUS";
+
+            if (isLulus) {
+                triggerConfetti();
+                content.innerHTML = `
+                    <div class="animate-pulse-glow rounded-2xl p-6 bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-400 mb-4">
+                        <div class="text-6xl mb-3">🎓</div>
+                        <h3 class="font-playfair text-2xl font-bold text-green-700 mb-2">SELAMAT!</h3>
+                        <p class="text-green-600 font-medium text-lg">Anda Dinyatakan</p>
+                        <p class="text-4xl font-black text-green-700 font-playfair my-2">LULUS</p>
+                    </div>
+                    <div class="bg-gray-50 rounded-xl p-4 text-left space-y-2">
+                        <p class="text-sm"><span class="text-gray-500">Nama:</span> <strong>${student.nama}</strong></p>
+                        <p class="text-sm"><span class="text-gray-500">NISN:</span> <strong>${student.nisn}</strong></p>
+                        <p class="text-sm"><span class="text-gray-500">Kelas:</span> <strong>${student.kelas}</strong></p>
+                    </div>
+                `;
+            } else {
+                content.innerHTML = `
+                    <div class="rounded-2xl p-6 bg-gray-50 border-2 border-gray-300 mb-4">
+                        <h3 class="font-playfair text-xl font-bold text-gray-700 mb-2">Hasil Kelulusan</h3>
+                        <p class="text-2xl font-bold text-red-600">${student.status}</p>
+                    </div>
+                    <div class="bg-gray-50 rounded-xl p-4 text-left space-y-2">
+                        <p class="text-sm"><span class="text-gray-500">Nama:</span> <strong>${student.nama}</strong></p>
+                        <p class="text-sm"><span class="text-gray-500">NISN:</span> <strong>${student.nisn}</strong></p>
+                        <p class="text-sm"><span class="text-gray-500">Kelas:</span> <strong>${student.kelas}</strong></p>
+                    </div>
+                `;
+            }
+        }
+
+        function triggerConfetti() {
+            const colors = ['#22c55e','#d4a843','#3b82f6','#f43f5e','#a855f7','#eab308'];
+            for (let i = 0; i < 60; i++) {
+                const piece = document.createElement('div');
+                piece.className = 'confetti-piece';
+                piece.style.left = Math.random() * 100 + '%';
+                piece.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                piece.style.animationDelay = Math.random() * 2 + 's';
+                piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                document.body.appendChild(piece);
+                setTimeout(() => piece.remove(), 5000);
+            }
+        }
+
+        function backToLogin() {
+            document.getElementById('resultPage').classList.add('hidden');
+            document.getElementById('loginPage').classList.remove('hidden');
+            document.getElementById('inputNama').value = '';
+            document.getElementById('inputNISN').value = '';
+        }
+
+        // Admin functions
+        function showAdminLogin() {
+            document.getElementById('adminLoginModal').classList.remove('hidden');
+        }
+        function closeAdminLogin() {
+            document.getElementById('adminLoginModal').classList.add('hidden');
+            document.getElementById('adminLoginError').classList.add('hidden');
+        }
+        function loginAdmin() {
+            const u = document.getElementById('adminUser').value;
+            const p = document.getElementById('adminPass').value;
+            if (u === 'admin' && p === '123456') {
+                document.getElementById('adminLoginModal').classList.add('hidden');
+                document.getElementById('loginPage').classList.add('hidden');
+                document.getElementById('adminPanel').classList.remove('hidden');
+                renderAdminTable();
+                lucide.createIcons();
+            } else {
+                document.getElementById('adminLoginError').textContent = 'Username atau password salah!';
+                document.getElementById('adminLoginError').classList.remove('hidden');
+            }
+        }
+        function logoutAdmin() {
+            document.getElementById('adminPanel').classList.add('hidden');
+            document.getElementById('loginPage').classList.remove('hidden');
+            document.getElementById('adminUser').value = '';
+            document.getElementById('adminPass').value = '';
+        }
+
+        function handleLogoUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            if (file.size > 2 * 1024 * 1024) {
+                return; // too large
+            }
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                schoolLogoData = e.target.result;
+                // Update all logo instances
+                ['schoolLogo','adminLogoImg'].forEach(id => {
+                    const img = document.getElementById(id);
+                    img.src = schoolLogoData;
+                    img.classList.remove('hidden');
+                });
+                ['logoFallback','adminLogoFallback'].forEach(id => {
+                    document.getElementById(id).classList.add('hidden');
+                });
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function parseData() {
+            const raw = document.getElementById('dataInput').value.trim();
+            const resultEl = document.getElementById('parseResult');
+            if (!raw) {
+                resultEl.textContent = 'Silakan masukkan data terlebih dahulu.';
+                resultEl.className = 'mt-3 text-sm text-red-500';
+                resultEl.classList.remove('hidden');
+                return;
+            }
+            const lines = raw.split('\n').filter(l => l.trim());
+            const newData = [];
+            for (const line of lines) {
+                const cols = line.split(/\t|,(?=(?:[^"]*"[^"]*")*[^"]*$)/).map(c => c.trim().replace(/^"|"$/g,''));
+                if (cols.length >= 5 && !isNaN(parseInt(cols[0]))) {
+                    newData.push({no: parseInt(cols[0]), nisn: cols[1], nama: cols[2], kelas: cols[3], status: cols[4]});
+                }
+            }
+            if (newData.length > 0) {
+                studentData = newData;
+                resultEl.textContent = `Berhasil memproses ${newData.length} data siswa.`;
+                resultEl.className = 'mt-3 text-sm text-green-600';
+                resultEl.classList.remove('hidden');
+                renderAdminTable();
+            } else {
+                resultEl.textContent = 'Tidak dapat memproses data. Periksa format.';
+                resultEl.className = 'mt-3 text-sm text-red-500';
+                resultEl.classList.remove('hidden');
+            }
+        }
+
+        function renderAdminTable() {
+            document.getElementById('dataCount').textContent = studentData.length;
+            const tbody = document.getElementById('dataTable');
+            tbody.innerHTML = studentData.map(s => `
+                <tr class="border-b border-gray-100 hover:bg-gray-50">
+                    <td class="px-3 py-2">${s.no}</td>
+                    <td class="px-3 py-2 font-mono text-xs">${s.nisn}</td>
+                    <td class="px-3 py-2">${s.nama}</td>
+                    <td class="px-3 py-2">${s.kelas}</td>
+                    <td class="px-3 py-2"><span class="px-2 py-0.5 rounded text-xs font-semibold ${s.status==='LULUS'?'bg-green-100 text-green-700':'bg-red-100 text-red-700'}">${s.status}</span></td>
+                </tr>
+            `).join('');
+        }
+
+        // Allow Enter key on login
+        document.getElementById('inputNISN').addEventListener('keydown', e => { if(e.key==='Enter') checkResult(); });
+        document.getElementById('adminPass').addEventListener('keydown', e => { if(e.key==='Enter') loginAdmin(); });
+
+        lucide.createIcons();
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9f43732eb5c6229b',t:'MTc3NzUxOTYzOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
