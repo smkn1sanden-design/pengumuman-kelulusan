@@ -25,34 +25,39 @@
   <style>body { box-sizing: border-box; }</style>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
  </head>
- <body class="h-full overflow-auto"><!-- LOGIN PAGE -->
+ <body class="h-full overflow-auto">
+  <!-- LOGIN PAGE -->
   <div id="loginPage" class="h-full gradient-bg flex items-center justify-center p-4">
    <div class="w-full max-w-md">
     <div class="login-card rounded-2xl shadow-2xl p-8 border border-gray-200">
-          <div class="text-center mb-6">
+     <div class="text-center mb-6">
       
-      <div id="logoContainer" class="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-900 to-blue-700 flex items-center justify-center overflow-hidden"><img id="schoolLogo" src="" class="w-full h-full object-cover hidden" alt="Logo Sekolah"> 
-
-              
+      <div id="logoContainer" class="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-900 to-blue-700 flex items-center justify-center overflow-hidden">
+       <img id="schoolLogo" src="" class="w-full h-full object-cover hidden" alt="Logo Sekolah"> <span id="logoFallback" class="text-white text-3xl font-bold font-playfair">S</span>
+         <!-- LOGO SEKOLAH -->
 <img src="Logo 3d.jpg" width="100%" alt="Logo Sekolah">
-             <!-- GAMBAR <span id="logoFallback" class="text-white text-3xl font-bold font-playfair">S</span> -->
+       
       </div>
       <h1 id="schoolTitle" class="font-playfair text-xl font-bold text-gray-800">SMK Negeri 1 Sanden</h1>
       <p class="text-sm text-gray-500 mt-1">Tahun Pelajaran 2025/2026</p>
-      <div class="mt-3 inline-block px-4 py-1 bg-blue-900 rounded-full"><span id="annTitle" class="text-xs font-semibold text-white tracking-wider uppercase">Pengumuman Kelulusan</span>
+      <div class="mt-3 inline-block px-4 py-1 bg-blue-900 rounded-full">
+       <span id="annTitle" class="text-xs font-semibold text-white tracking-wider uppercase">Pengumuman Kelulusan</span>
       </div>
      </div>
      <div class="space-y-4">
-      <div><label for="inputNama" class="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap</label> <input id="inputNama" type="text" placeholder="Masukkan nama lengkap" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition">
+      <div>
+       <label for="inputNama" class="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap</label> <input id="inputNama" type="text" placeholder="Masukkan nama lengkap" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition">
       </div>
-      <div><label for="inputNISN" class="block text-sm font-medium text-gray-700 mb-1">NISN</label> <input id="inputNISN" type="text" placeholder="Masukkan NISN" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition">
+      <div>
+       <label for="inputNISN" class="block text-sm font-medium text-gray-700 mb-1">NISN</label> <input id="inputNISN" type="text" placeholder="Masukkan NISN" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition">
       </div><button onclick="checkResult()" class="w-full py-3 bg-gradient-to-r from-blue-900 to-blue-700 text-white font-semibold rounded-lg hover:from-blue-800 hover:to-blue-600 transition-all shadow-lg hover:shadow-xl"> <span class="flex items-center justify-center gap-2"><i data-lucide="search" class="w-4 h-4"></i> Cek Kelulusan</span> </button>
       <div id="loginError" class="hidden text-center text-red-500 text-sm bg-red-50 p-3 rounded-lg"></div>
      </div>
      <div class="mt-6 pt-4 border-t border-gray-200">
       <p class="text-xs text-gray-500 text-center leading-relaxed"><i data-lucide="info" class="w-3 h-3 inline-block mr-1"></i> Jika ada perbedaan hasil pengumuman online dengan manual, maka yang menjadi acuan adalah <strong>dokumen kelulusan yang telah disahkan dan ditandatangani oleh Kepala Sekolah</strong>.</p>
      </div>
-     <div class="mt-4 text-center"><button onclick="showAdminLogin()" class="text-xs text-gray-400 hover:text-gray-600 transition"> <i data-lucide="shield" class="w-3 h-3 inline-block mr-1"></i>Admin </button>
+     <div class="mt-4 text-center">
+      <button onclick="showAdminLogin()" class="text-xs text-gray-400 hover:text-gray-600 transition"> <i data-lucide="shield" class="w-3 h-3 inline-block mr-1"></i>Admin </button>
      </div>
     </div>
    </div>
@@ -60,7 +65,8 @@
   <div id="resultPage" class="h-full gradient-bg flex items-center justify-center p-4 hidden">
    <div class="w-full max-w-lg">
     <div class="login-card rounded-2xl shadow-2xl p-8 text-center animate-fade-in-up">
-     <div id="resultLogoContainer" class="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-900 to-blue-700 flex items-center justify-center overflow-hidden"><img id="resultLogo" src="" class="w-full h-full object-cover hidden" alt="Logo"> <span id="resultLogoFallback" class="text-white text-2xl font-bold font-playfair">S</span>
+     <div id="resultLogoContainer" class="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-900 to-blue-700 flex items-center justify-center overflow-hidden">
+      <img id="resultLogo" src="" class="w-full h-full object-cover hidden" alt="Logo"> <span id="resultLogoFallback" class="text-white text-2xl font-bold font-playfair">S</span>
      </div>
      <h2 class="font-playfair text-lg font-bold text-gray-800 mb-1" id="resultSchoolName">SMK Negeri 1 Sanden</h2>
      <p class="text-xs text-gray-500 mb-6">Pengumuman Kelulusan TP 2025/2026</p>
@@ -70,11 +76,65 @@
      </div>
     </div>
    </div>
+  </div><!-- TIMER LOCKED PAGE -->
+  <div id="timerLockedPage" class="h-full gradient-bg flex items-center justify-center p-4 hidden">
+   <div class="w-full max-w-lg">
+    <div class="login-card rounded-2xl shadow-2xl p-8 text-center animate-fade-in-up">
+     <div id="timerLogoContainer" class="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-900 to-blue-700 flex items-center justify-center overflow-hidden">
+      <img id="timerLogo" src="" class="w-full h-full object-cover hidden" alt="Logo"> <span id="timerLogoFallback" class="text-white text-2xl font-bold font-playfair">S</span>
+     </div>
+     <h2 class="font-playfair text-lg font-bold text-gray-800 mb-1" id="timerSchoolName">SMK Negeri 1 Sanden</h2>
+     <p class="text-xs text-gray-500 mb-6">Pengumuman Kelulusan TP 2025/2026</p>
+     <div class="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-6 border-2 border-amber-200 mb-6">
+      <div class="text-5xl mb-3">
+       🔒
+      </div>
+      <h3 class="font-playfair text-xl font-bold text-amber-900 mb-2">Hasil Kelulusan Terkunci</h3>
+      <p class="text-amber-800 text-sm mb-4">Pengumuman kelulusan akan dibuka pada:</p>
+      <p id="releaseDateTime" class="font-playfair text-2xl font-bold text-amber-700 mb-4">-</p>
+      <div class="grid grid-cols-4 gap-2">
+       <div class="bg-white rounded-lg p-3">
+        <div id="timerDays" class="text-2xl font-bold text-amber-700">
+         0
+        </div>
+        <div class="text-xs text-gray-600 mt-1">
+         Hari
+        </div>
+       </div>
+       <div class="bg-white rounded-lg p-3">
+        <div id="timerHours" class="text-2xl font-bold text-amber-700">
+         0
+        </div>
+        <div class="text-xs text-gray-600 mt-1">
+         Jam
+        </div>
+       </div>
+       <div class="bg-white rounded-lg p-3">
+        <div id="timerMinutes" class="text-2xl font-bold text-amber-700">
+         0
+        </div>
+        <div class="text-xs text-gray-600 mt-1">
+         Menit
+        </div>
+       </div>
+       <div class="bg-white rounded-lg p-3">
+        <div id="timerSeconds" class="text-2xl font-bold text-amber-700">
+         0
+        </div>
+        <div class="text-xs text-gray-600 mt-1">
+         Detik
+        </div>
+       </div>
+      </div>
+     </div><button onclick="backToLogin()" class="px-6 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition text-sm font-medium"> <i data-lucide="arrow-left" class="w-4 h-4 inline-block mr-1"></i> Kembali </button>
+    </div>
+   </div>
   </div><!-- ADMIN LOGIN MODAL -->
   <div id="adminLoginModal" class="fixed inset-0 bg-black/60 flex items-center justify-center p-4 hidden z-50">
    <div class="bg-white rounded-2xl p-6 w-full max-w-sm shadow-2xl">
     <h3 class="font-playfair text-lg font-bold text-gray-800 mb-4 text-center">Panel Admin</h3>
-    <div class="space-y-3"><input id="adminUser" type="text" placeholder="Username" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none"> <input id="adminPass" type="password" placeholder="Password" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none">
+    <div class="space-y-3">
+     <input id="adminUser" type="text" placeholder="Username" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none"> <input id="adminPass" type="password" placeholder="Password" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none">
      <div id="adminLoginError" class="hidden text-red-500 text-sm text-center"></div><button onclick="loginAdmin()" class="w-full py-3 bg-blue-900 text-white rounded-lg font-semibold hover:bg-blue-800 transition">Masuk</button> <button onclick="closeAdminLogin()" class="w-full py-2 text-gray-500 hover:text-gray-700 text-sm">Batal</button>
     </div>
    </div>
@@ -82,21 +142,34 @@
   <div id="adminPanel" class="h-full bg-gray-50 hidden overflow-auto">
    <div class="max-w-4xl mx-auto p-6">
     <div class="flex items-center justify-between mb-6">
-     <h2 class="font-playfair text-2xl font-bold text-gray-800">Panel Admin</h2><button onclick="logoutAdmin()" class="px-4 py-2 bg-red-500 text-white rounded-lg text-sm hover:bg-red-600 transition"> <i data-lucide="log-out" class="w-4 h-4 inline-block mr-1"></i>Kembali </button>
-    </div><!-- Upload Logo -->
+     <h2 class="font-playfair text-2xl font-bold text-gray-800">Panel Admin</h2><button onclick="logoutAdmin()" class="px-4 py-2 bg-red-500 text-white rounded-lg text-sm hover:bg-red-600 transition"> <i data-lucide="log-out" class="w-4 h-4 inline-block mr-1"></i>Keluar </button>
+    </div><!-- Timer Settings -->
+    <div class="bg-white rounded-xl p-6 shadow-sm border mb-6">
+     <h3 class="font-semibold text-gray-800 mb-3"><i data-lucide="clock" class="w-5 h-5 inline-block mr-2"></i>Pengaturan Timer Pembukaan Hasil</h3>
+     <div class="space-y-3">
+      <div class="flex items-center gap-3"><input type="checkbox" id="timerToggle" checked onchange="toggleTimerSetting()" class="w-4 h-4 rounded"> <label for="timerToggle" class="text-sm font-medium text-gray-700">Aktifkan Timer Pembukaan</label>
+      </div>
+      <div id="timerSettingBox"><label for="releaseDate" class="block text-sm font-medium text-gray-700 mb-1">Tanggal dan Waktu Pembukaan</label> <input type="datetime-local" id="releaseDate" class="w-full px-4 py-3 rounded-lg border border-gray-300 text-sm focus:ring-2 focus:ring-blue-500 outline-none">
+       <p class="text-xs text-gray-500 mt-1">Default: Senin, 4 Mei 2026 pukul 00:00</p><button onclick="saveTimerSettings()" class="mt-3 px-6 py-2 bg-blue-600 text-white rounded-lg text-sm font-semibold hover:bg-blue-700 transition">Simpan Pengaturan</button>
+       <div id="timerSaveResult" class="mt-2 text-sm hidden"></div>
+      </div>
+     </div>
+    </div>
     <div class="bg-white rounded-xl p-6 shadow-sm border mb-6">
      <h3 class="font-semibold text-gray-800 mb-3"><i data-lucide="image" class="w-5 h-5 inline-block mr-2"></i>Ganti Logo Sekolah</h3>
      <div class="flex items-center gap-4">
-      <div id="adminLogoPreview" class="w-16 h-16 rounded-full bg-blue-900 flex items-center justify-center overflow-hidden"><img id="adminLogoImg" src="" class="w-full h-full object-cover hidden" alt="Logo"> <span id="adminLogoFallback" class="text-white text-xl font-bold">MOKO</span>
+      <div id="adminLogoPreview" class="w-16 h-16 rounded-full bg-blue-900 flex items-center justify-center overflow-hidden">
+       <img id="adminLogoImg" src="" class="w-full h-full object-cover hidden" alt="Logo"> <span id="adminLogoFallback" class="text-white text-xl font-bold">S</span>
       </div>
-      <div><input type="file" id="logoUpload" accept="image/*" onchange="handleLogoUpload(event)" class="text-sm">
+      <div>
+       <input type="file" id="logoUpload" accept="image/*" onchange="handleLogoUpload(event)" class="text-sm">
        <p class="text-xs text-gray-500 mt-1">Format: JPG, PNG. Maks 2MB</p>
       </div>
      </div>
     </div><!-- Upload Excel -->
     <div class="bg-white rounded-xl p-6 shadow-sm border mb-6">
      <h3 class="font-semibold text-gray-800 mb-3"><i data-lucide="file-text" class="w-5 h-5 inline-block mr-2"></i>Upload Data Siswa (CSV/Excel)</h3>
-     <p class="text-xs text-gray-500 mb-3">Format kolom: NO, NISN, NAMA, KELAS, STATUS (pisahkan dengan tab atau koma). </p><textarea id="dataInput" rows="6" class="w-full px-4 py-3 rounded-lg border border-gray-300 text-sm font-mono focus:ring-2 focus:ring-blue-500 outline-none" placeholder="Tempel data dari Excel di sini..."></textarea> <button onclick="parseData()" class="mt-3 px-6 py-2 bg-green-600 text-white rounded-lg text-sm font-semibold hover:bg-green-700 transition"> <i data-lucide="upload" class="w-4 h-4 inline-block mr-1"></i>Proses Data </button>
+     <p class="text-xs text-gray-500 mb-3">Format kolom: NO, NISN, NAMA, KELAS, STATUS (pisahkan dengan tab atau koma)</p><textarea id="dataInput" rows="6" class="w-full px-4 py-3 rounded-lg border border-gray-300 text-sm font-mono focus:ring-2 focus:ring-blue-500 outline-none" placeholder="Tempel data dari Excel di sini..."></textarea> <button onclick="parseData()" class="mt-3 px-6 py-2 bg-green-600 text-white rounded-lg text-sm font-semibold hover:bg-green-700 transition"> <i data-lucide="upload" class="w-4 h-4 inline-block mr-1"></i>Proses Data </button>
      <div id="parseResult" class="mt-3 text-sm hidden"></div>
     </div><!-- Current Data -->
     <div class="bg-white rounded-xl p-6 shadow-sm border">
@@ -404,9 +477,14 @@
             {no:281,nisn:"0077441685",nama:"YORDAN AHMAD SAIFUDDIN ROSIDI",kelas:"XII APAT",status:"LULUS"},
             {no:282,nisn:"0084514762",nama:"ZAKY NURDI PRATAMA",kelas:"XII APAT",status:"LULUS"},
             {no:283,nisn:"0084189365",nama:"ZULHAR PRATAMA",kelas:"XII APAT",status:"LULUS"},
+
         ];
 
         let schoolLogoData = null;
+        let timerSettings = {
+            enabled: true,
+            releaseDate: new Date(2026, 4, 4, 0, 0, 0).toISOString() // Default: Monday, May 4, 2026, 00:00
+        };
 
         const defaultConfig = {
             school_name: "SMK Negeri 1 Sanden",
@@ -464,6 +542,17 @@
             }
 
             errEl.classList.add('hidden');
+
+            // Check if timer is enabled and if current time is before release time
+            if (timerSettings.enabled) {
+                const now = new Date();
+                const releaseTime = new Date(timerSettings.releaseDate);
+                if (now < releaseTime) {
+                    showTimerLocked(releaseTime);
+                    return;
+                }
+            }
+
             showResult(student);
         }
 
@@ -526,9 +615,61 @@
 
         function backToLogin() {
             document.getElementById('resultPage').classList.add('hidden');
+            document.getElementById('timerLockedPage').classList.add('hidden');
             document.getElementById('loginPage').classList.remove('hidden');
             document.getElementById('inputNama').value = '';
             document.getElementById('inputNISN').value = '';
+        }
+
+        function showTimerLocked(releaseTime) {
+            document.getElementById('loginPage').classList.add('hidden');
+            document.getElementById('resultPage').classList.add('hidden');
+            document.getElementById('timerLockedPage').classList.remove('hidden');
+
+            if (schoolLogoData) {
+                document.getElementById('timerLogo').src = schoolLogoData;
+                document.getElementById('timerLogo').classList.remove('hidden');
+                document.getElementById('timerLogoFallback').classList.add('hidden');
+            }
+
+            // Set the release date and time display
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+            document.getElementById('releaseDateTime').textContent = releaseTime.toLocaleDateString('id-ID', options);
+
+            // Start countdown timer
+            updateCountdown(releaseTime);
+            const timerInterval = setInterval(() => {
+                const now = new Date();
+                if (now >= releaseTime) {
+                    clearInterval(timerInterval);
+                    backToLogin();
+                } else {
+                    updateCountdown(releaseTime);
+                }
+            }, 1000);
+        }
+
+        function updateCountdown(releaseTime) {
+            const now = new Date();
+            const diff = releaseTime - now;
+
+            if (diff <= 0) {
+                document.getElementById('timerDays').textContent = '0';
+                document.getElementById('timerHours').textContent = '0';
+                document.getElementById('timerMinutes').textContent = '0';
+                document.getElementById('timerSeconds').textContent = '0';
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('timerDays').textContent = String(days).padStart(2, '0');
+            document.getElementById('timerHours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('timerMinutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('timerSeconds').textContent = String(seconds).padStart(2, '0');
         }
 
         // Admin functions
@@ -546,6 +687,7 @@
                 document.getElementById('adminLoginModal').classList.add('hidden');
                 document.getElementById('loginPage').classList.add('hidden');
                 document.getElementById('adminPanel').classList.remove('hidden');
+                initializeTimerUI();
                 renderAdminTable();
                 lucide.createIcons();
             } else {
@@ -558,6 +700,53 @@
             document.getElementById('loginPage').classList.remove('hidden');
             document.getElementById('adminUser').value = '';
             document.getElementById('adminPass').value = '';
+        }
+
+        // Timer settings functions
+        function toggleTimerSetting() {
+            const toggle = document.getElementById('timerToggle').checked;
+            timerSettings.enabled = toggle;
+            document.getElementById('timerSettingBox').style.opacity = toggle ? '1' : '0.5';
+            document.getElementById('timerSettingBox').style.pointerEvents = toggle ? 'auto' : 'none';
+        }
+
+        function saveTimerSettings() {
+            const dateInputValue = document.getElementById('releaseDate').value;
+            if (!dateInputValue) {
+                showTimerSaveError('Silakan pilih tanggal dan waktu');
+                return;
+            }
+            const selectedDate = new Date(dateInputValue);
+            timerSettings.releaseDate = selectedDate.toISOString();
+            showTimerSaveSuccess('Pengaturan timer berhasil disimpan!');
+        }
+
+        function showTimerSaveError(msg) {
+            const el = document.getElementById('timerSaveResult');
+            el.textContent = msg;
+            el.className = 'mt-2 text-sm text-red-600';
+            el.classList.remove('hidden');
+            setTimeout(() => el.classList.add('hidden'), 3000);
+        }
+
+        function showTimerSaveSuccess(msg) {
+            const el = document.getElementById('timerSaveResult');
+            el.textContent = msg;
+            el.className = 'mt-2 text-sm text-green-600';
+            el.classList.remove('hidden');
+            setTimeout(() => el.classList.add('hidden'), 3000);
+        }
+
+        function initializeTimerUI() {
+            // Set initial datetime input value from timerSettings
+            const dateObj = new Date(timerSettings.releaseDate);
+            const year = dateObj.getFullYear();
+            const month = String(dateObj.getMonth() + 1).padStart(2, '0');
+            const date = String(dateObj.getDate()).padStart(2, '0');
+            const hours = String(dateObj.getHours()).padStart(2, '0');
+            const minutes = String(dateObj.getMinutes()).padStart(2, '0');
+            document.getElementById('releaseDate').value = `${year}-${month}-${date}T${hours}:${minutes}`;
+            document.getElementById('timerToggle').checked = timerSettings.enabled;
         }
 
         function handleLogoUpload(event) {
@@ -632,5 +821,5 @@
 
         lucide.createIcons();
     </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9f43732eb5c6229b',t:'MTc3NzUxOTYzOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9f53654a076fa2f5',t:'MTc3NzY4Njg0Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
